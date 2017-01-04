@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>异步加载库</title>
+	<!--异步加载库流行的有两个 load.js  script.js  head.js 体积很小， 都可以帮助我们异步的方式加载所依赖的所有JS文件-->
+	<script src="bower_components/script.js/dist/script.min.js"></script>
+	<!--方式一：-->
+	<script>
+//		第一个参数为需要加载的JS文件，第二个为回调函数
+//		$script('', function () {
+////			加载完js文件后才执行喜下面的任务，需要一定的时间
+//
+//		})
+//		$script(['./bower_components/angular/angular.js',
+//			'./bower_components/jquery/dist/jquery.js'
+//
+//		], function () {
+//		//			加载完js文件后才执行喜下面的任务，需要一定的时间
+//			console.log(angular);
+//			console.log(jQuery);
+////			怎么处理包之间的依赖关系？
+//
+//		})
+
+
+//			怎么处理包之间的依赖关系？一步一步嵌套往下加载，把依赖的都先加载了。
+		$script(['./bower_components/angular/angular.js',
+			'./bower_components/jquery/dist/jquery.js'
+		], function () {
+				$script(['./components/version/http.js'
+				], function () {
+						$script(['./in_theaters/demo.js'
+						], function () {
+								$script(['./app.js'
+								], function () {
+
+								})
+						})
+				})
+		})
+	</script>
+	<!--方式二：angular-loader的作用就是在使用一些异步加载搅拌库的时候，自动控制依赖关系-->
+	<script src="bower_components/angular-loader/angular-loader.min.js"></script>
+	<script>
+				$script(['./bower_components/angular/angular.js',
+					'./bower_components/jquery/dist/jquery.js',
+					'./bower_components/angular-route/angular-route.js',
+					'./in_theaters/demo.js',
+					'./components/version/http.js',
+					'./app.js'
+				], function () {
+					console.log(angular);
+					angular.bootstrap(document, ['moviecat']);
+
+				})
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

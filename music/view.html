@@ -1,0 +1,52 @@
+
+<div class="jumbotron">
+	<audio id="audio1" src="./music/resource/Almost-Lover.mp3" >你的浏览器目前不支持HTML5，建议您更新您的浏览器</audio>
+	<h1>Hello, music!</h1>
+
+	<div class="media">
+		<div class="media-left media-middle">
+			<img src="./music/resource/1.jpg" alt="图片加载失败">
+
+			<div id="lanren">
+				<div id="audio-btn" class="on">
+				</div>
+			</div>
+		</div>
+		<div class="media-body">
+			<h2 class="media-heading">蔡健雅 - 被驯服的象</h2>
+			<div class="media-btnn">
+				<button type="button" class="btn btn-danger" >
+					<div ng-if="!loads" ng-click="palyerss()" onclick="document.getElementById('audio1').play();"><span class="glyphicon glyphicon-play" ></span>播 放</div>
+					<div ng-if="loads" ng-click="palyerss()" onclick="document.getElementById('audio1').pause();"><span class="glyphicon glyphicon-pause" ></span>暂 停</div>
+				</button>
+
+				<button type="button" class="btn btn-info" >
+					<span class="glyphicon glyphicon-download"></span>下 载
+				</button>
+				<button type="button" class="btn btn-info" ng-click="thumbsup()">
+					<span class="glyphicon glyphicon-thumbs-up"></span>{{ups}}
+				</button>
+				<button type="button" class="btn btn-info" ng-click="thumbsdowns()">
+					<span class="glyphicon glyphicon-thumbs-down"></span>{{downs}}
+				</button>
+			</div>
+			<p>介绍： 我总算还是明白，<br/>
+				如花美眷，终抵不过似水流年。<br/>
+				姹紫嫣红的春色，也只是韶光一现。<br/>
+				其实我们都会有被岁月老去红颜的那一天。<br/>
+				既然年华将你我抛闪，<br/>
+				又何须为几片泛黄的记忆，痴心留恋。<br/>
+				永远有人问，为什么美好的总是在昨天。<br/>
+				那是因为，<br/>
+				我们都不知不觉地爱上一个词，叫怀念<br/>
+			</p>
+			<h5>标签: <span class="label label-warning">史 诗</span><span class="label label-danger">爱 情</span></h5>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
